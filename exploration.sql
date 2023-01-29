@@ -90,6 +90,7 @@ From Portfolio..Covid_Deaths dea
 Join Portfolio..Covid_Vaccinations vac
 	On dea.location = vac.location
 	and dea.date = vac.date
+--where dea.location = 'india'
 where dea.continent is not null 
 order by 2,3
 
@@ -106,10 +107,11 @@ From Portfolio..Covid_Deaths dea
 Join Portfolio..Covid_Vaccinations vac
 	On dea.location = vac.location
 	and dea.date = vac.date
-where dea.continent is not null 
+--where dea.continent is not null 
+where dea.location = 'india'
 --order by 2,3
 )
-Select *, (RollingPeopleVaccinated/Population)*100
+Select *, (RollingPeopleVaccinated/Population)*100 as  PercentVaccinatedPopulation
 From PopvsVac
 
 
@@ -135,7 +137,7 @@ From Portfolio..Covid_Deaths dea
 Join Portfolio..Covid_Vaccinations vac
 	On dea.location = vac.location
 	and dea.date = vac.date
---where dea.continent is not null 
+where dea.continent is not null 
 --order by 2,3
 
 Select *, (RollingPeopleVaccinated/Population)*100
@@ -155,3 +157,7 @@ Join Portfolio..Covid_Vaccinations vac
 	On dea.location = vac.location
 	and dea.date = vac.date
 where dea.continent is not null 
+
+
+Select * 
+From PercentPopulationVaccinated
